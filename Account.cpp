@@ -9,23 +9,17 @@ Account::Account(const std::string& Anumber, const std::string& FName, const std
 //Wplata 
 void Account::Deposit(double amount)
 {
-	if (amount > 0) Balance += amount;
- else {
-	 // Opcjonalne zabezpieczenie przed wp³at¹ ujemnych kwot
-	 std::cout << "Blad: Kwota wplaty musi byc wieksza od zera.\n";
-	}
+	if (amount <= 0) throw std::invalid_argument("Kwota wplaty musi byc wieksza od zera.");
+	
+	Balance += amount;
 }
 
 //Wyplata
-bool Account::Withdraw(double amount)
+void Account::Withdraw(double amount)
 {
-	//Sprawdzam warunki wyplaty
-	if (amount > Balance && amount > 0)
-	{
-		Balance -= amount;
-		return true;
-	}
-	return false;
+	if (amount <= 0) throw std::invalid_argument("Kwota wyplaty musi byc wieksza od zera.");
+	if (Balance < amount) throw std::runtime_error("Brak wystarczajacych srodkow na koncie.");
+	Balance -= amount;
 }
 
 void Account::DisplayInfo() const
