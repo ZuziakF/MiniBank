@@ -3,6 +3,7 @@
 class Account
 {
 private:
+	//clientID
 	std::string AccountNumber;
 	std::string FirstName;
 	std::string LastName;

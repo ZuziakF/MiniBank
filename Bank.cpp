@@ -13,13 +13,13 @@ std::string Bank::GenerateAccountNumber()
 
 
 //Tworzenie konta
-void Bank::CreateAccount(const std::string& FirstName, const std::string LastName, double InitialBalance)
+std::string Bank::CreateAccount(const std::string& FirstName, const std::string LastName, double InitialBalance)
 {
 	std::string AccountNumber = GenerateAccountNumber();
 	Account NewAccount(AccountNumber, FirstName, LastName, InitialBalance);
 	Accounts.insert({AccountNumber,NewAccount});
-	std::cout << "Utworzono Konto";
-
+	std::cout << "Utworzono Konto o numerze: " + AccountNumber;
+	return AccountNumber;
 }
 
 
@@ -42,11 +42,18 @@ void Bank::WithdrawFromAccount(const std::string& AccountNumber, double Amount)
 }
 
 //Pokazywanie informacji o koncie
-void Bank::DisplayAccountInfo(const std::string AccountNumber) const
+void Bank::DisplayAccountInfo(const std::string& AccountNumber) const
 {
 	auto it = Accounts.find(AccountNumber);
 	if (it == Accounts.end())  throw std::invalid_argument("Blad: Nie znaleziono konta o numerze " + AccountNumber);
 
 	it->second.DisplayInfo();
 	
+}
+double Bank::GetBalance(const std::string& AccountNumber) const
+{
+	auto it = Accounts.find(AccountNumber);
+	if (it == Accounts.end()) throw std::invalid_argument("Nie znaleziono konta o numerze " + AccountNumber);
+
+	return it->second.GetBalance();
 }
