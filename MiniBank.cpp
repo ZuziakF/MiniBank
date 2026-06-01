@@ -11,121 +11,51 @@ void ClearInput() {
 
 int main()
 {
-	Bank MyBank;
-	bool Running = true;
-	int Choice;
+    Bank myBank;
 
-	while (Running) 
-	{
-		//Wybor opcji
-		std::cout << "\nWybierz operacje:\n";
-		std::cout << "1. Utworz nowe konto\n";
-		std::cout << "2. Wplac srodki\n";
-		std::cout << "3. Wyplac srodki\n";
-		std::cout << "4. Wyswietl informacje o koncie\n";
-		std::cout << "5. Wyjscie\n";
-		std::cout << "Twoj wybor: ";
+    try {
+        std::cout << "--- TEST 1: Rejestracja i otwieranie kont ---\n";
 
-		if (!(std::cin >> Choice)) {
-			std::cout << "Nieprawidlowy wybor. \n";
-			ClearInput();
-			continue;
-		}
-		std::string AccNumber, FirstName, LastName;
-		double Amount;
+        // 1. Rejestrujemy klienta
+        myBank.RegisterClient("90010112345", "Jan", "Kowalski");
 
+        // 2. Otwieramy mu dwa różne konta i zapisujemy ich numery
+        std::string mainAcc = myBank.OpenAccountForClient("90010112345", AccountType::MAIN, 1000.0);
+        std::string savingsAcc = myBank.OpenAccountForClient("90010112345", AccountType::SAVINGS, 5000.0);
 
-		switch (Choice) 
-		{
-		//Zakladanie nowego konta
-		case 1:
-			std::cout << "Podaj imie: ";
-			std::cin >> FirstName;
-			std::cout << "Podaj nazwisko ";
-			std::cin >> LastName;
+        std::cout << "\n--- TEST 2: Operacje finansowe ---\n";
 
-			try 
-			{
-				MyBank.CreateAccount(FirstName, LastName);
-			} 
-			catch (const std::exception& e)
-			{
-				std::cout << "Blad: " << e.what() << "\n";
-			}
-			break;
+        // 3. Wpłacamy 500 na główne
+        std::cout << "Wplacam 500 na konto glowne...\n";
+        myBank.Deposit("90010112345", mainAcc, 500.0);
 
+        // 4. Wypłacamy 200 z oszczędnościowego
+        std::cout << "Wyplacam 200 z konta oszczednosciowego...\n";
+        myBank.Withdraw("90010112345", savingsAcc, 200.0);
 
-		//Wplata
-		case 2:
-			std::cout << "Podaj numer konta: ";
-			std::cin >> AccNumber;
-			std::cout << "Podaj kwote do wplaty: ";
-			if (!(std::cin >> Amount))
-			{
-				std::cout << "Nieprawidlowa kwota.\n";
-				ClearInput();
-				break;
-			}
-			try
-			{
-				MyBank.DepositToAccount(AccNumber, Amount);
-				std::cout << "Wplata zakonczona!\n";
-			}
-			catch (const std::exception& e) 
-			{
-				std::cout << e.what() << "\n";
-			}
+        // 5. Sprawdzamy salda
+        std::cout << "Saldo konta glownego: " << myBank.GetBalance("90010112345", mainAcc) << " PLN\n";
+        std::cout << "Saldo konta oszczednosciowego: " << myBank.GetBalance("90010112345", savingsAcc) << " PLN\n";
 
+        std::cout << "\n--- TEST 3: Zabezpieczenia i wyjatki ---\n";
 
-		//Wyplata
-		case 3:
-			std::cout << "Podaj numer konta: ";
-			std::cin >> AccNumber;
-			std::cout << "Podaj kwote do wplaty: ";
-			if (!(std::cin >> Amount))
-			{
-				std::cout << "Nieprawidlowa kwota.\n";
-				ClearInput();
-				break;
-			}
-			try
-			{
-				MyBank.WithdrawFromAccount(AccNumber, Amount);
-				std::cout << "Wyplata zakonczona!\n";
-			}
-			catch (const std::exception& e)
-			{
-				std::cout << e.what() << "\n";
-			}
+        // 6. Próbujemy wypłacić więcej niż mamy (to powinno wywołać błąd i przejść do catch)
+        std::cout << "Probuje wyplacic 100 000 PLN z konta glownego...\n";
+        myBank.Withdraw("90010112345", mainAcc, 100000.0);
 
+        // Jeśli błąd zadziała, ten napis nigdy się nie wyświetli:
+        std::cout << "To sie nie powinno wyswietlic!\n";
 
-		//Wyswietlanie informacji
-		case 4:
-			std::cout << "Podaj numer konta: ";
-			std::cin >> AccNumber;
-			try
-			{
-				MyBank.DisplayAccountInfo(AccNumber);
-			}
-			catch (const std::exception& e)
-			{
-				std::cout<< e.what() << "\n";
-			}
-			break;
+    }
+    catch (const std::exception& e) {
+        // Tutaj wpadają wszystkie nasze błędy (np. brak środków, zły pesel)
+        std::cerr << "ZLAPANO BLAD: " << e.what() << "\n";
+    }
 
-
-		//Wyjscie
-		case 5:
-			std::cout << "Dziekujemy za skrozystanie z banku. Do uslyszenia!";
-			Running = false;
-			break;
-		default:
-			std::cout << "Nieznana opcja. Wybierz cyfre od 1 do 5.";
-			break;
-		}
-	}
-	return 0;
+    std::cout << "\nKoniec testow.\n";
+    return 0;
 }
+
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
 // Debugowanie programu: F5 lub menu Debugowanie > Rozpocznij debugowanie

@@ -1,8 +1,8 @@
 #include "Account.h"
 #include <iostream>
 
-Account::Account(const std::string& Anumber, const std::string& FName, const std::string& LName, double Initialbalance)
-	: AccountNumber(Anumber), FirstName(FName), LastName(LName), Balance(Initialbalance) 
+Account::Account(const std::string& Anumber,AccountType Type, double Initialbalance)
+	: AccountNumber(Anumber),Type(Type), Balance(Initialbalance)
 {
 }
 
@@ -22,13 +22,6 @@ void Account::Withdraw(double amount)
 	Balance -= amount;
 }
 
-void Account::DisplayInfo() const
-{
-	std::cout << "Konto nr: " << AccountNumber << "\n";
-	std::cout << "Wlasciciel: " << FirstName << " " << LastName << "\n";
-	std::cout << "Saldo: " << Balance << " PLN\n";
-}
-
 //Getter dla numeru konta
 std::string Account::GetAccountNumber() const
 {
@@ -41,3 +34,8 @@ double Account::GetBalance() const
 	return Balance;
 }
 
+//Getter dla typu konta
+AccountType Account::GetType() const
+{
+	return Type;
+}
