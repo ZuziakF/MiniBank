@@ -16,5 +16,6 @@ public:
 	Account* GetAccount(const std::string& AccountNumber);
 	std::string GetPesel() const;
 	std::string GetFullName() const;
+	const std::unordered_map<std::string, Account>& GetAllAccounts() const;
 };
 

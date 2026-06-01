@@ -19,6 +19,7 @@ public:
 	void Deposit(const std::string& pesel, const std::string& accountnumber, double amount);
 	void Withdraw(const std::string& pesel, const std::string& accountnumber, double amount);
 	double GetBalance(const std::string& pesel, const std::string& accountnumber);
+	Client* GetClient(const std::string& pesel);
 };
 
 

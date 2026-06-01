@@ -39,5 +39,11 @@ std::string Client::GetPesel() const
 //Getter dla imienia i nazwiska
 std::string Client::GetFullName() const
 {
-	return FirstName + " " + LastName;
+	return " " + FirstName + " " + LastName + " ";
+}
+
+//Getter dla kont
+const std::unordered_map<std::string, Account>& Client::GetAllAccounts() const
+{
+	return Accounts;
 }

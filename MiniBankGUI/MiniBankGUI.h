@@ -15,10 +15,12 @@ private slots:
     void onDepositClicked();
     void onWithdrawClicked();
     void onCreateAccountClicked();
-    void onAccountSelected(const QString& accountNumber);
+    void onAccountSelected(const QString& AccountNumber);
+    void onRegisterClientClicked();
+    void onClientChanged();
 private:
-    Ui::MiniBankGUIClass ui;
+    Ui::MiniBankGUIClass* ui;
     Bank* bank;
-    std::string CurrentAccount;
+    
 };
 
