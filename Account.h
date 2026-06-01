@@ -9,6 +9,7 @@ enum class AccountType
 class Account
 {
 private:
+	//clientID
 	std::string AccountNumber;
 	AccountType Type;
 	// U¿ywamy double na potrzeby symulacji (normalnie u¿ylibyœmy np. int dla groszy poniewa¿ typy zmiennoprzecinkowe maj¹ problem z precyzj¹ w u³amkach)
