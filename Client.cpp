@@ -4,7 +4,7 @@
 
 Client::Client(int id, const std::string& pesel, const std::string& firstname, const std::string& lastname)
 {
-    //Sprawdzamy poprawnoœæ PESELu
+    //Sprawdzamy poprawnosc PESELu
     if (pesel.length() != 11)
     {
         throw std::invalid_argument("PESEL musi skladac sie z dokladnie 11 znakow!");

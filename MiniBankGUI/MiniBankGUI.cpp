@@ -15,7 +15,7 @@ MiniBankGUI::MiniBankGUI(QWidget* parent)
     ui->FirstNameInput->setPlaceholderText("Imie");
     ui->LastNameInput->setPlaceholderText("Nazwisko");
     ui->PeselInput->setPlaceholderText("PESEL");
-    //Pod³¹czamy elelemty
+    //Podlaczamy elelemty
     connect(ui->RegisterClientBtn, &QPushButton::clicked, this, &MiniBankGUI::onRegisterClientClicked);
     connect(ui->OpenAccountBtn, &QPushButton::clicked, this, &MiniBankGUI::onCreateAccountClicked);
     connect(ui->ClientSelector, &QComboBox::currentIndexChanged, this, &MiniBankGUI::onClientChanged);
@@ -60,7 +60,7 @@ void MiniBankGUI::onCreateAccountClicked()
     }
 }
 
-//£adowanie kont dla zaznaczonej osoby
+//Ladowanie kont dla zaznaczonej osoby
 void MiniBankGUI::onClientChanged()
 {
     ui->AccountsList->clear();
