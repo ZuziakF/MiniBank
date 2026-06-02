@@ -32,7 +32,7 @@ MiniBank/
 
 Testy znajdują się w projekcie `MiniBankUnitTests` i pokrywają klasy `Account`, `Bank` oraz `Client`.
 
-Aby uruchomić testy, wejdź w eksplorator testów, zamknij, ponów wejście i naciśnij uruchom wszysktie testy.
+Aby uruchomić testy, wejdź w eksplorator testów, zamknij, ponów wejście i naciśnij `uruchom wszystkie testy`.
 ## Historia Git
 ```
 nothing added to commit but untracked files present (use "git add" to track)
