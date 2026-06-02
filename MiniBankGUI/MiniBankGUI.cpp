@@ -9,6 +9,7 @@ MiniBankGUI::MiniBankGUI(QWidget* parent)
 {
     ui->setupUi(this);
     bank = new Bank();
+    ui->InitialBalanceInput->setMaximum(1000000.0);
     ui->FirstNameInput->setPlaceholderText("Imie");
     ui->LastNameInput->setPlaceholderText("Nazwisko");
     ui->PeselInput->setPlaceholderText("PESEL");
