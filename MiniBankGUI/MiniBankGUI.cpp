@@ -9,7 +9,13 @@ MiniBankGUI::MiniBankGUI(QWidget* parent)
 {
     ui->setupUi(this);
     bank = new Bank();
+<<<<<<< HEAD
     ui->InitialBalanceInput->setMaximum(1000000.0);
+=======
+    //Placeholdery i maksima na pola dla liczb
+    ui->InitialBalanceInput->setMaximum(1000000.0);
+    ui->AmountInput->setMaximum(1000000000.0);
+>>>>>>> test-gui
     ui->FirstNameInput->setPlaceholderText("Imie");
     ui->LastNameInput->setPlaceholderText("Nazwisko");
     ui->PeselInput->setPlaceholderText("PESEL");
@@ -34,7 +40,11 @@ void MiniBankGUI::onCreateAccountClicked()
 {
     if (ui->ClientSelector->count() == 0)
     {
+<<<<<<< HEAD
         QMessageBox::warning(this, "B³¹d", "Brak klienta do wyboru");
+=======
+        QMessageBox::warning(this, "Blad", "Brak klienta do wyboru");
+>>>>>>> test-gui
         return;
     }
     std::string Pesel = ui->ClientSelector->currentData().toString().toStdString();
@@ -54,7 +64,7 @@ void MiniBankGUI::onCreateAccountClicked()
     }
     catch (const std::exception& e)
     {
-        QMessageBox::warning(this, "Nie uda³o siê otworzyæ konta", e.what());
+        QMessageBox::warning(this, "Nie udalo sie otworzyc konta", e.what());
     }
 }
 
@@ -64,7 +74,6 @@ void MiniBankGUI::onClientChanged()
     ui->AccountsList->clear();
     ui->BalanceLabel->setText("Saldo: brak");
     ui->OwnerLabel->setText("Posiadajacy: brak");
-
     if (ui->ClientSelector->currentIndex() == -1) return; //W przypadku gdy nie ma kogo wybraæ
     std::string ActivePesel = ui->ClientSelector->currentData().toString().toStdString();
     Client* ActiveClient = bank->GetClient(ActivePesel);
@@ -83,6 +92,7 @@ void MiniBankGUI::onAccountSelected(const QString& AccountNumber)
     {
         ui->BalanceLabel->setText("Saldo: brak");
         ui->OwnerLabel->setText("Posiadajacy: brak");
+        ui->LabelAccountType->setText("Typ konta: brak");
         return;
     }
     std::string AccNum = AccountNumber.toStdString();
@@ -98,11 +108,22 @@ void MiniBankGUI::onAccountSelected(const QString& AccountNumber)
             double balance = it->second.GetBalance();
             ui->BalanceLabel->setText("Saldo: " + QString::number(balance, 'f', 2) + " PLN");
             ui->OwnerLabel->setText("Posiadajacy: " + QString::fromStdString(ActiveClient->GetFullName()));
+<<<<<<< HEAD
         }
     }
 }
 
 //Przycisk wplac
+=======
+
+            AccountType type = it->second.GetType();
+            QString typeText = (type == AccountType::MAIN) ? "Glowne" : "Oszczednosciowe";
+            ui->LabelAccountType->setText("Typ konta: " + typeText);
+        }
+    }
+}
+//Depozyt
+>>>>>>> test-gui
 void MiniBankGUI::onDepositClicked()
 {
     if (ui->AccountsList->currentItem() == nullptr)
@@ -122,7 +143,7 @@ void MiniBankGUI::onDepositClicked()
     {
         bank->Deposit(activePesel, accNum, amount);
         ui->AmountInput->setValue(0.0);
-        QMessageBox::information(this, "Sukces", "Wplacono pieniadze na konto.");
+        QMessageBox::information(this, "Udalo sie", "Wplacono pieniadze na konto.");
         onAccountSelected(QString::fromStdString(accNum));
     }
     catch (const std::exception& e)
@@ -130,8 +151,12 @@ void MiniBankGUI::onDepositClicked()
         QMessageBox::critical(this, "Blad transakcji", e.what());
     }
 }
+<<<<<<< HEAD
 
 //Przycisk wyplac
+=======
+//Wyplacenie pieniedzy
+>>>>>>> test-gui
 void MiniBankGUI::onWithdrawClicked()
 {
     if (ui->AccountsList->currentItem() == nullptr)
@@ -151,7 +176,7 @@ void MiniBankGUI::onWithdrawClicked()
     {
         bank->Withdraw(ActivePesel, AccNum, amount);
         ui->AmountInput->setValue(0.0);
-        QMessageBox::information(this, "Sukces", "Wyplacono pieniadze.");
+        QMessageBox::information(this, "Udalo sie", "Wyplacono pieniadze.");
         onAccountSelected(QString::fromStdString(AccNum));
     }
     catch (const std::exception& e)
@@ -159,8 +184,12 @@ void MiniBankGUI::onWithdrawClicked()
         QMessageBox::critical(this, "Odmowa", e.what());
     }
 }
+<<<<<<< HEAD
 
 //Rejestrujemy klienta
+=======
+//Rejestracja klienta
+>>>>>>> test-gui
 void MiniBankGUI::onRegisterClientClicked()
 {
     std::string firstName = ui->FirstNameInput->text().toStdString();
