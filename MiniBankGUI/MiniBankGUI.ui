@@ -209,8 +209,6 @@
      <string>Posiadający: brak</string>
     </property>
    </widget>
-<<<<<<< HEAD
-=======
    <widget class="QLabel" name="LabelAccountType">
     <property name="geometry">
      <rect>
@@ -224,7 +222,6 @@
      <string>Typ konta: brak</string>
     </property>
    </widget>
->>>>>>> test-gui
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
