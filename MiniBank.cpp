@@ -19,17 +19,15 @@ int main()
         // 1. Rejestrujemy klienta
         myBank.RegisterClient("90010112345", "Jan", "Kowalski");
 
-        // 2. Otwieramy mu dwa różne konta i zapisujemy ich numery
+        // 2. Otwieramy mu dwa rozne konta i zapisujemy ich numery
         std::string mainAcc = myBank.OpenAccountForClient("90010112345", AccountType::MAIN, 1000.0);
         std::string savingsAcc = myBank.OpenAccountForClient("90010112345", AccountType::SAVINGS, 5000.0);
 
-        std::cout << "\n--- TEST 2: Operacje finansowe ---\n";
-
-        // 3. Wpłacamy 500 na główne
+        // 3. Wplacamy 500 na glowne
         std::cout << "Wplacam 500 na konto glowne...\n";
         myBank.Deposit("90010112345", mainAcc, 500.0);
 
-        // 4. Wypłacamy 200 z oszczędnościowego
+        // 4. Wyplacamy 200 z oszczednosciowego
         std::cout << "Wyplacam 200 z konta oszczednosciowego...\n";
         myBank.Withdraw("90010112345", savingsAcc, 200.0);
 
@@ -37,18 +35,16 @@ int main()
         std::cout << "Saldo konta glownego: " << myBank.GetBalance("90010112345", mainAcc) << " PLN\n";
         std::cout << "Saldo konta oszczednosciowego: " << myBank.GetBalance("90010112345", savingsAcc) << " PLN\n";
 
-        std::cout << "\n--- TEST 3: Zabezpieczenia i wyjatki ---\n";
-
-        // 6. Próbujemy wypłacić więcej niż mamy (to powinno wywołać błąd i przejść do catch)
+        // 6. Probujemy wyplacic wiecej niż mamy 
         std::cout << "Probuje wyplacic 100 000 PLN z konta glownego...\n";
         myBank.Withdraw("90010112345", mainAcc, 100000.0);
 
-        // Jeśli błąd zadziała, ten napis nigdy się nie wyświetli:
+        // Jesli blad zadziala, ten napis nigdy się nie wyswietli:
         std::cout << "To sie nie powinno wyswietlic!\n";
 
     }
     catch (const std::exception& e) {
-        // Tutaj wpadają wszystkie nasze błędy (np. brak środków, zły pesel)
+        // Tutaj wpadaja wszystkie nasze bledy (np. brak srodkow, zly pesel)
         std::cerr << "ZLAPANO BLAD: " << e.what() << "\n";
     }
 

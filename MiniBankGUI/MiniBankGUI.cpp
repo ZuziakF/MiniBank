@@ -99,6 +99,11 @@ void MiniBankGUI::onAccountSelected(const QString& AccountNumber)
         }
     }
 }
+<<<<<<< Updated upstream
+=======
+
+//Przycisk wplac
+>>>>>>> Stashed changes
 void MiniBankGUI::onDepositClicked()
 {
    
@@ -129,6 +134,7 @@ void MiniBankGUI::onDepositClicked()
     }
 }
 
+//Przycisk wyplac
 void MiniBankGUI::onWithdrawClicked()
 {
    
@@ -157,6 +163,11 @@ void MiniBankGUI::onWithdrawClicked()
         QMessageBox::critical(this, "Odmowa", e.what());
     }
 }
+<<<<<<< Updated upstream
+=======
+
+//Rejestrujemy klienta
+>>>>>>> Stashed changes
 void MiniBankGUI::onRegisterClientClicked()
 {
     std::string firstName = ui->FirstNameInput->text().toStdString();
