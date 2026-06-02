@@ -1,8 +1,22 @@
 #include "Client.h"
+#include <stdexcept>
+#include <cctype>
 
 Client::Client(int id, const std::string& pesel, const std::string& firstname, const std::string& lastname)
-	: ClientID(id), PESEL(pesel), FirstName(firstname), LastName(lastname)
 {
+    //Sprawdzamy poprawnoœæ PESELu
+    if (pesel.length() != 11) {
+        throw std::invalid_argument("PESEL musi sk³adaæ siê z dok³adnie 11 znaków!");
+    }
+
+    for (char c : pesel) {
+        if (!isdigit(c)) {
+            throw std::invalid_argument("PESEL mo¿e zawieraæ tylko cyfry!");
+        }
+    }
+    this->PESEL = pesel;
+    this->FirstName = firstname;
+    this->LastName = lastname;
 }
 //Dodajemy nowe konto
 void Client::AddAccount(const Account& NewAccount)
