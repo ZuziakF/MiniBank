@@ -209,6 +209,19 @@
      <string>Posiadający: brak</string>
     </property>
    </widget>
+   <widget class="QLabel" name="LabelAccountType">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>210</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Typ konta: brak</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
