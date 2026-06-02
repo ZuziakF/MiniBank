@@ -85,8 +85,8 @@ git commit -m "opis"
 git push                         
 git push origin master --force    
 git branch -a                   
-git checkout nazwa-brancha       
-git merge nazwa-brancha          
+git checkout      
+git merge          
 git pull origin master           
 git log --oneline                 
 git reset --hard hash-commita     
