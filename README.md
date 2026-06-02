@@ -11,15 +11,12 @@
 
 ```
 MiniBank/
-├── Account.cpp / Account.h       
-├── Bank.cpp / Bank.h             
-├── Client.cpp / Client.h         
-├── MiniBank.cpp                  
-├── MiniBankGUI/                  
-│   ├── MiniBankGUI.cpp/.h        
-│   ├── MiniBankGUI.ui            
-│   └── main.cpp                
-└── MiniBankUnitTests/           
+├── Account.cpp / Account.h    
+├── Bank.cpp / Bank.h          
+├── Client.cpp / Client.h     
+├── MiniBank.sln               
+├── MiniBankGUI/               
+└── MiniBankUnitTests/      
 ```
 
 ## Uruchomienie
