@@ -4,7 +4,7 @@
 
 Client::Client(int id, const std::string& pesel, const std::string& firstname, const std::string& lastname)
 {
-    //Sprawdzamy poprawnoœæ PESELu
+    //Sprawdzamy poprawnosc PESELu
     if (pesel.length() != 11)
     {
         throw std::invalid_argument("PESEL musi skladac sie z dokladnie 11 znakow!");
@@ -33,7 +33,7 @@ void Client::AddAccount(const Account& NewAccount)
 Account* Client::GetAccount(const std::string& AccountNumber)
 {
 	auto it = Accounts.find(AccountNumber);
-	if (it != Accounts.end()) return &(it->second); //Zwracamy wskaŸnik na konto
+	if (it != Accounts.end()) return &(it->second); //Zwracamy wskaznik na konto
 
 	return nullptr;
 }
