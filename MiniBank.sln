@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MiniBank", "MiniBank.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MiniBankGUI", "MiniBankGUI\MiniBankGUI.vcxproj", "{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MiniBankUnitTests", "..\MiniBankUnitTests\MiniBankUnitTests.vcxproj", "{6428F23B-2E19-917A-E3B0-D7514F0248D3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MiniBankUnitTests", "MiniBankUnitTests\.vcxproj", "{6428F23B-2E19-917A-E3B0-D7514F0248D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
