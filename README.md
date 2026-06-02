@@ -22,14 +22,6 @@ MiniBank/
 └── MiniBankUnitTests/           
 ```
 
-## Technologie
-
-- **C++17**
-- **Qt 6.11** — interfejs graficzny
-- **Visual Studio 2022** — środowisko deweloperskie
-- **Google Test** — testy jednostkowe
-- **Git** — kontrola wersji
-
 ## Uruchomienie
 
 1. Otwórz `MiniBank.sln` w Visual Studio 2022
@@ -40,8 +32,7 @@ MiniBank/
 
 Testy znajdują się w projekcie `MiniBankUnitTests` i pokrywają klasy `Account`, `Bank` oraz `Client`.
 
-Aby uruchomić testy, ustaw `MiniBankUnitTests` jako projekt startowy i uruchom.
-
+Aby uruchomić testy, wejdź w eksplorator testów, zamknij, ponów wejście i naciśnij uruchom wszysktie testy.
 ## Historia Git
 ```
 nothing added to commit but untracked files present (use "git add" to track)
