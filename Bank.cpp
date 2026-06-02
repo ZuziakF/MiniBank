@@ -67,6 +67,14 @@ double Bank::GetBalance(const std::string& pesel, const std::string& accountnumb
 	return Acc->GetBalance();
 }
 
-
+//Wyci¹gamy konkretnego klienta aby mieæ jego konta
+Client* Bank::GetClient(const std::string& pesel)
+{
+	auto it = Clients.find(pesel);
+	if (it != Clients.end()) {
+		return &(it->second);
+	}
+	return nullptr;
+}
 
 

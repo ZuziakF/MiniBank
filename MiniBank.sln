@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MiniBank", "MiniBank.vcxproj", "{49A6E54B-CCC7-4E93-9EFA-D10F423B508F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MiniBankGUI", "MiniBankGUI\MiniBankGUI.vcxproj", "{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{49A6E54B-CCC7-4E93-9EFA-D10F423B508F}.Release|x64.Build.0 = Release|x64
 		{49A6E54B-CCC7-4E93-9EFA-D10F423B508F}.Release|x86.ActiveCfg = Release|Win32
 		{49A6E54B-CCC7-4E93-9EFA-D10F423B508F}.Release|x86.Build.0 = Release|Win32
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Debug|x64.ActiveCfg = Debug|x64
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Debug|x64.Build.0 = Debug|x64
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Debug|x86.ActiveCfg = Debug|x64
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Debug|x86.Build.0 = Debug|x64
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Release|x64.ActiveCfg = Release|x64
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Release|x64.Build.0 = Release|x64
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Release|x86.ActiveCfg = Release|x64
+		{05F5D57E-22D9-4024-AAEE-DAA943B89FE7}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
